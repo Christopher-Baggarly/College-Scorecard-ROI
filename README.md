@@ -34,6 +34,24 @@ A pre-generated synthetic report is included in `samples/Sample_Career_College_R
  ├── README.md ├── requirements.txt ├── config/ │ └── analysis_config.json # Institution identity, field map, ROI assumptions, report branding ├── src/ │ ├── init.py │ ├── extractor.py # Targeted row extraction (constant memory) │ ├── cache.py # JSON read-through cache with atomic write │ ├── roi.py # CAGR, payback, ROI multiple calculation │ └── report.py # ReportLab + matplotlib executive PDF ├── data/ │ ├── raw/ # College Scorecard CSV (user-supplied; not in repo) │ └── cache/ # Extraction cache (gitignored) ├── examples/ │ └── run_analysis.py # End-to-end demo with synthetic case study └── samples/ └── Sample_Career_College_ROI_Report.pdf
 
 
+**** What This Engine Does Not Do****
+
+This engine automates ROI calculation and executive report generation against a single institution. It does not:
+
+Replace official institutional research methodology
+
+Generate compliance filings (IPEDS, NSLDS, EADA)
+
+Provide per-program granularity beyond what the federal source file offers
+
+Run live web scraping — the College Scorecard file must be downloaded manually
+
+The architectural decision was to automate the high-volume calculation and report-assembly work, and leave the institutional research judgment calls to humans.
+
+**Author**
+
+Built by Christopher Baggarly — Operations Architect with hands-on responsibility for institutional analytics, federal compliance reporting, and executive dashboard pipelines in higher education operations. Engineered to solve a recurring pain point (manual ROI benchmarking taking days, with no auditable methodology) while producing publication-grade output that survives board-level scrutiny.
+
 ### Quick Start
 ```bash
 # 1. Install dependencies
@@ -53,20 +71,4 @@ python examples/run_analysis.py
 
 
 
-**** What This Engine Does Not Do****
 
-This engine automates ROI calculation and executive report generation against a single institution. It does not:
-
-Replace official institutional research methodology
-
-Generate compliance filings (IPEDS, NSLDS, EADA)
-
-Provide per-program granularity beyond what the federal source file offers
-
-Run live web scraping — the College Scorecard file must be downloaded manually
-
-The architectural decision was to automate the high-volume calculation and report-assembly work, and leave the institutional research judgment calls to humans.
-
-**Author**
-
-Built by Christopher Baggarly — Operations Architect with hands-on responsibility for institutional analytics, federal compliance reporting, and executive dashboard pipelines in higher education operations. Engineered to solve a recurring pain point (manual ROI benchmarking taking days, with no auditable methodology) while producing publication-grade output that survives board-level scrutiny.
