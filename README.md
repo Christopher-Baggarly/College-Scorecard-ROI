@@ -30,3 +30,5 @@ A pre-generated synthetic report is included in `samples/Sample_Career_College_R
 - **JSON** — config and cache storage (no external database dependency)
 
 ### Repository Layout
+
+ ├── README.md ├── requirements.txt ├── config/ │ └── analysis_config.json # Institution identity, field map, ROI assumptions, report branding ├── src/ │ ├── init.py │ ├── extractor.py # Targeted row extraction (constant memory) │ ├── cache.py # JSON read-through cache with atomic write │ ├── roi.py # CAGR, payback, ROI multiple calculation │ └── report.py # ReportLab + matplotlib executive PDF ├── data/ │ ├── raw/ # College Scorecard CSV (user-supplied; not in repo) │ └── cache/ # Extraction cache (gitignored) ├── examples/ │ └── run_analysis.py # End-to-end demo with synthetic case study └── samples/ └── Sample_Career_College_ROI_Report.pdf
