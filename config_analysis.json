@@ -1,0 +1,60 @@
+{
+  "institution": {
+    "name": "Sample Career College",
+    "unitid": "SAMPLE000001",
+    "state": "GA",
+    "control": "Private for-profit",
+    "predominant_degree": "Associate's",
+    "synthetic": true
+  },
+  "data_source": {
+    "raw_csv_path": "./data/raw/College_Scorecard_Raw_Data/MERGED2019_20_PP.csv",
+    "scorecard_year": "2019-20",
+    "encoding": "latin-1",
+    "delimiter": ","
+  },
+  "extraction": {
+    "match_field": "UNITID",
+    "match_value": "SAMPLE000001",
+    "fields_to_extract": [
+      "INSTNM",
+      "CITY",
+      "STABBR",
+      "CONTROL",
+      "PREDDEG",
+      "NPT4_PUB",
+      "NPT4_PRIV",
+      "DEBT_MDN",
+      "EARN_MDN_HI_1YR",
+      "EARN_MDN_HI_2YR",
+      "EARN_MDN_HI_3YR",
+      "PCT10_EARN_WNE_P10",
+      "PCT25_EARN_WNE_P10",
+      "PCT75_EARN_WNE_P10",
+      "PCT90_EARN_WNE_P10"
+    ]
+  },
+  "cache": {
+    "cache_path": "./data/cache/extracted_schools.json",
+    "ttl_days": 90,
+    "force_refresh": false
+  },
+  "roi": {
+    "time_horizon_years": 10,
+    "discount_rate_annual": 0.03,
+    "loan_interest_rate_annual": 0.0652,
+    "loan_repayment_term_years": 10,
+    "national_median_earnings_1yr": 35000,
+    "national_median_earnings_10yr": 52000,
+    "regional_median_earnings_1yr": 32000
+  },
+  "report": {
+    "output_path": "./output/ROI_Reports",
+    "filename_template": "{institution_name}_ROI_Report.pdf",
+    "include_charts": true,
+    "include_national_benchmark": true,
+    "include_regional_benchmark": true,
+    "primary_brand_color_hex": "#002D62",
+    "accent_color_hex": "#F4A261"
+  }
+}
